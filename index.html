@@ -67,9 +67,19 @@ h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:36px}
 
 /* projects */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;perspective:1000px}
-.card{position:relative;padding:28px;border-radius:22px;background:linear-gradient(145deg,var(--bg2),#232052);border:1px solid var(--line);transform-style:preserve-3d;transition:transform .15s ease-out;min-height:250px}
-.card h3{font-size:1.5rem;margin:14px 0 10px;transform:translateZ(30px)}
-.card p{color:var(--mute);margin:0;transform:translateZ(14px)}
+.card{position:relative;overflow:hidden;border-radius:22px;background:linear-gradient(145deg,var(--bg2),#232052);border:1px solid var(--line);min-width:0}
+.card h3{font-size:1.5rem;margin:14px 0 10px}
+.card p{color:var(--mute);margin:0}
+.project-cover{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#090914}
+.project-link{display:block;position:relative;text-decoration:none}
+.project-link::after{content:'View photo';position:absolute;right:12px;bottom:12px;padding:5px 12px;border-radius:99px;background:rgba(9,9,20,.85);font-size:.8rem}
+.project-link:hover::after{background:var(--pink);color:var(--bg)}
+.project-info{padding:22px}
+.project-intro{color:var(--mute);margin:-14px 0 30px}
+.photo-viewer{padding:16px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:18px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px)}
+.photo-viewer::backdrop{background:rgba(0,0,0,.85)}
+.photo-viewer img{display:block;max-width:100%;max-height:calc(100dvh - 120px);object-fit:contain;margin:auto}
+.photo-viewer button{display:block;margin:0 0 12px auto;padding:8px 16px;border:1px solid var(--line);border-radius:99px;background:var(--bg2);color:var(--ink);font:inherit;cursor:pointer}
 .tag{display:inline-block;padding:4px 12px;border-radius:99px;font-size:.82rem;font-weight:500;color:#12122b;transform:translateZ(24px)}
 .note{color:var(--mute);margin-top:22px;max-width:40em}
 
@@ -136,14 +146,86 @@ footer{padding:30px 24px 50px;text-align:center;color:var(--mute);font-size:.9re
 </div></section>
 
 <section id="work"><div class="wrap">
-  <h2>Projects I've built.</h2>
+  <h2>My edits &amp; visual stories.</h2>
+  <p class="project-intro">5 video edits and 9 photos &amp; designs. Play a video or select a photo to see it full size.</p>
   <div class="grid">
-    <article class="card" data-tilt><span class="tag" style="background:var(--cyan)">MERN stack</span><h3>Travel Planner</h3><p>Search destinations, build itineraries and manage bookings in one full-stack app.</p></article>
-    <article class="card" data-tilt><span class="tag" style="background:var(--pink)">MERN stack</span><h3>Library Management</h3><p>Books, borrowing records and inventory with real-time availability updates.</p></article>
-    <article class="card" data-tilt><span class="tag" style="background:var(--amber)">Java · OOP</span><h3>Student Bank Account</h3><p>A console banking app that applies OOP principles and saves data to files.</p></article>
+    <article class="card">
+      <video class="project-cover" controls playsinline preload="none" poster="assets/projects/swaram-edit.jpg" aria-label="Swaram Edit">
+        <source src="assets/projects/swaram-edit.mp4" type="video/mp4">
+        <a href="assets/projects/swaram-edit.mp4">Watch Swaram Edit</a>
+      </video>
+      <div class="project-info"><span class="tag" style="background:var(--pink)">Video edit</span><h3>Swaram Edit</h3><p>A social video and poster edit.</p></div>
+    </article>
+    <article class="card">
+      <video class="project-cover" controls playsinline preload="none" poster="assets/projects/pixel-25.jpg" aria-label="PIXEL 25">
+        <source src="assets/projects/pixel-25.mp4" type="video/mp4">
+        <a href="assets/projects/pixel-25.mp4">Watch PIXEL 25</a>
+      </video>
+      <div class="project-info"><span class="tag" style="background:var(--pink)">Video edit</span><h3>PIXEL 25</h3><p>An event video edit.</p></div>
+    </article>
+    <article class="card">
+      <video class="project-cover" controls playsinline preload="none" poster="assets/projects/kec-photography-club.jpg" aria-label="KEC Photography Club">
+        <source src="assets/projects/kec-photography-club.mp4" type="video/mp4">
+        <a href="assets/projects/kec-photography-club.mp4">Watch KEC Photography Club</a>
+      </video>
+      <div class="project-info"><span class="tag" style="background:var(--pink)">Video edit</span><h3>KEC Photography Club</h3><p>An invitation and event video.</p></div>
+    </article>
+    <article class="card">
+      <video class="project-cover" controls playsinline preload="none" poster="assets/projects/video-highlights.jpg" aria-label="Video Highlights">
+        <source src="assets/projects/video-highlights.mp4" type="video/mp4">
+        <a href="assets/projects/video-highlights.mp4">Watch Video Highlights</a>
+      </video>
+      <div class="project-info"><span class="tag" style="background:var(--pink)">Video edit</span><h3>Video Highlights</h3><p>A short video edit.</p></div>
+    </article>
+    <article class="card">
+      <video class="project-cover" controls playsinline preload="none" poster="assets/projects/computer-technology.jpg" aria-label="Building the Future">
+        <source src="assets/projects/computer-technology.mp4" type="video/mp4">
+        <a href="assets/projects/computer-technology.mp4">Watch Building the Future</a>
+      </video>
+      <div class="project-info"><span class="tag" style="background:var(--pink)">Video edit</span><h3>Building the Future</h3><p>A showcase of the Department of Computer Technology.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122133.jpg" data-photo aria-label="View On Stage full size"><img class="project-cover" src="assets/projects/IMG_20260805_122133.jpg" alt="A live performance portrait." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>On Stage</h3><p>A live performance portrait.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122149.jpg" data-photo aria-label="View In the Spotlight full size"><img class="project-cover" src="assets/projects/IMG_20260805_122149.jpg" alt="A close-up from the stage." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>In the Spotlight</h3><p>A close-up from the stage.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122622.jpg" data-photo aria-label="View Layered Portrait full size"><img class="project-cover" src="assets/projects/IMG_20260805_122622.jpg" alt="A layered portrait composition." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>Layered Portrait</h3><p>A layered portrait composition.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122638.jpg" data-photo aria-label="View Portrait Collage full size"><img class="project-cover" src="assets/projects/IMG_20260805_122638.jpg" alt="Three moments in one composition." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>Portrait Collage</h3><p>Three moments in one composition.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122649.jpg" data-photo aria-label="View Heart Frame full size"><img class="project-cover" src="assets/projects/IMG_20260805_122649.jpg" alt="A portrait with heart-shaped photo frames." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>Heart Frame</h3><p>A portrait with heart-shaped photo frames.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122718.jpg" data-photo aria-label="View Concert Energy full size"><img class="project-cover" src="assets/projects/IMG_20260805_122718.jpg" alt="A performer and crowd composite." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>Concert Energy</h3><p>A performer and crowd composite.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122732.jpg" data-photo aria-label="View Hostel Day full size"><img class="project-cover" src="assets/projects/IMG_20260805_122732.jpg" alt="A collage of live music and stage lights." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>Hostel Day</h3><p>A collage of live music and stage lights.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122747.jpg" data-photo aria-label="View In the Crowd full size"><img class="project-cover" src="assets/projects/IMG_20260805_122747.jpg" alt="A collage of celebration and crowd moments." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>In the Crowd</h3><p>A collage of celebration and crowd moments.</p></div>
+    </article>
+    <article class="card">
+      <a class="project-link" href="assets/projects/IMG_20260805_122926.jpg" data-photo aria-label="View Under Blue Lights full size"><img class="project-cover" src="assets/projects/IMG_20260805_122926.jpg" alt="A DJ and crowd collage in blue light." loading="lazy" decoding="async" width="1080" height="1350"></a>
+      <div class="project-info"><span class="tag" style="background:var(--cyan)">Photo / design</span><h3>Under Blue Lights</h3><p>A DJ and crowd collage in blue light.</p></div>
+    </article>
   </div>
-  <p class="note">These are my academic projects. I also presented a paper on the impact of e-vehicles at Ramakrishna College of Engineering &amp; Technology, Coimbatore.</p>
 </div></section>
+<dialog class="photo-viewer" aria-label="Full-size project photo">
+  <button type="button" autofocus>Close photo</button>
+  <img alt="">
+</dialog>
 
 <section><div class="wrap two">
   <div><h3>Education</h3><ul>
@@ -178,6 +260,19 @@ footer{padding:30px 24px 50px;text-align:center;color:var(--mute);font-size:.9re
   var tc=document.getElementById('tc'),t0=performance.now();
   function pad(n){return String(n).padStart(2,'0')}
   if(!reduce) setInterval(function(){var s=(performance.now()-t0)/1000;tc.textContent=pad(s/3600|0)+':'+pad(s/60%60|0)+':'+pad(s%60|0)+':'+pad((s%1)*24|0)},41);
+  // Full-size photos and one video playing at a time.
+  var viewer=document.querySelector('.photo-viewer'),viewerImage=viewer.querySelector('img');
+  document.querySelectorAll('[data-photo]').forEach(function(link){
+    link.addEventListener('click',function(event){
+      if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||typeof viewer.showModal!=='function')return;
+      event.preventDefault();viewerImage.src=link.href;viewerImage.alt=link.querySelector('img').alt;viewer.showModal();
+    });
+  });
+  viewer.querySelector('button').addEventListener('click',function(){viewer.close()});
+  viewer.addEventListener('click',function(event){if(event.target===viewer){var rect=viewer.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)viewer.close()}});
+  document.querySelectorAll('#work video').forEach(function(video){
+    video.addEventListener('play',function(){document.querySelectorAll('#work video').forEach(function(other){if(other!==video)other.pause()})});
+  });
   // card tilt
   document.querySelectorAll('[data-tilt]').forEach(function(c){
     if(reduce)return;
